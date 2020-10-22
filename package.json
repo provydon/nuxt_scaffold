@@ -11,6 +11,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/toast": "^3.3.1",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",

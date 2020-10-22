@@ -5,6 +5,14 @@
   @apply inline-block px-5 py-2 rounded-lg tracking-wider font-bold text-sm;
 }
 
+.btn:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.btn:disabled:hover {
+  @apply opacity-50 cursor-not-allowed;
+}
+
 .btn:hover {
   @apply cursor-pointer;
 }
@@ -48,8 +56,6 @@
 .input-control {
   @apply my-3;
 }
-
-
 
 @screen sm {
   .btn {

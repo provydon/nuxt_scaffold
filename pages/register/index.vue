@@ -1,5 +1,5 @@
 <template>
-  <div class="admin-auth-page flex flex-col h-screen">
+  <div class="admin-auth-page flex mt-20 justify-center">
     <div class="auth-container">
       <h3 class="text-center">Register</h3>
       <form @submit.prevent="onSubmit">

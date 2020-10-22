@@ -23,7 +23,9 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
-    "@nuxtjs/tailwindcss",'@nuxtjs/dotenv'
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/dotenv",
+    "@nuxtjs/fontawesome"
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -51,7 +53,11 @@ export default {
 
   toast: {
     position: "top-center",
-    duration: 3000,
+    duration: 3000
+  },
+  fontawesome: {
+    component: "fa",
+    suffix: true,
   },
 
   pageTransition: {
