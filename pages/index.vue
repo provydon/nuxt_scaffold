@@ -3,7 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">
-        ChangeToNaira
+        {{ siteName }}
       </h1>
       <div class="links">
         <a
@@ -14,7 +14,11 @@
         >
           Documentation
         </a>
-        <nuxt-link to="/login" rel="noopener noreferrer" class="btn button--grey">
+        <nuxt-link
+          to="/login"
+          rel="noopener noreferrer"
+          class="btn button--grey"
+        >
           Login
         </nuxt-link>
         <a
@@ -31,7 +35,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      siteName: null
+    };
+  },
+  mounted() {
+    this.siteName = process.env.APP_NAME;
+  }
+};
 </script>
 
 <style>

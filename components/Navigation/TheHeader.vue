@@ -1,20 +1,24 @@
 <template>
-<div class="header-container">
-  <header class="the-header">
-    <TheSideNavToggle @toggle="$emit('side-nav-toggle')" />
-    <div class="logo">
-      <nuxt-link to="/">WD BLOG</nuxt-link>
-    </div>
-    <div class="spacer"></div>
-    <div class="navigation-items">
-      <ul class="nav-list">
-        <li class="nav-item"><nuxt-link to="/posts">Blog</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to="/about">About</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to="/admin">Admin</nuxt-link></li>
-      </ul>
-    </div>
-  </header>
-</div>
+  <div class="header-container">
+    <header class="the-header">
+      <TheSideNavToggle @toggle="$emit('side-nav-toggle')" />
+      <div class="logo">
+        <nuxt-link to="/">{{ siteName }}</nuxt-link>
+      </div>
+      <div class="spacer"></div>
+      <div class="navigation-items">
+        <ul class="nav-list">
+          <li class="nav-item"><nuxt-link to="/login">Login</nuxt-link></li>
+          <li class="nav-item">
+            <nuxt-link to="/register">Register</nuxt-link>
+          </li>
+          <li class="nav-item">
+            <nuxt-link to="/home">Dashboard</nuxt-link>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </div>
 </template>
 
 <script>
@@ -22,12 +26,19 @@ import TheSideNavToggle from "@/components/Navigation/TheSideNavToggle";
 
 export default {
   name: "TheHeader",
+  data() {
+    return {
+      siteName: null
+    };
+  },
   components: {
     TheSideNavToggle
+  },
+  mounted() {
+    this.siteName = process.env.APP_NAME;
   }
 };
 </script>
-
 
 <style scoped>
 .header-container {
