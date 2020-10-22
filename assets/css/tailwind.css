@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+
+.btn {
+  @apply inline-block px-5 py-2 rounded-lg tracking-wider font-bold text-sm;
+}
+
+.btn:hover {
+  @apply cursor-pointer;
+}
+
+.btn-blue {
+  @apply bg-blue-500 text-white;
+}
+
+.btn-blue:hover {
+  @apply bg-blue-400;
+}
+
+.btn-blue:focus {
+  @apply outline-none shadow-outline;
+}
+
+.btn-blue:active {
+  @apply bg-blue-600;
+}
+
+.btn-red {
+  @apply bg-red-500 text-white;
+}
+
+.btn-red:hover {
+  @apply bg-red-400;
+}
+
+.btn-red:focus {
+  @apply outline-none shadow-outline;
+}
+
+.btn-red:active {
+  @apply bg-red-600;
+}
+
+.input-control label {
+  @apply block font-bold;
+}
+
+.input-control {
+  @apply my-3;
+}
+
+
+
+@screen sm {
+  .btn {
+    @apply text-base;
+  }
+}
+
+@tailwind utilities;

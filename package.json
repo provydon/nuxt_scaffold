@@ -9,8 +9,13 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/toast": "^3.3.1",
+    "axios": "^0.20.0",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "js-cookie": "^2.2.1",
+    "nuxt": "^2.14.6",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^3.1.0"

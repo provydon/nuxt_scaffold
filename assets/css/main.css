@@ -1,0 +1,104 @@
+/* Rubik */
+@font-face {
+  font-family: "Rubik Regular";
+  src: url("../fonts/Rubik/Rubik-Regular.ttf");
+}
+@font-face {
+  font-family: "Rubik Light";
+  src: url("../fonts/Rubik/Rubik-Light.ttf");
+}
+@font-face {
+  font-family: "Rubik Medium";
+  src: url("../fonts/Rubik/Rubik-Medium.ttf");
+}
+@font-face {
+  font-family: "Rubik Bold";
+  src: url("../fonts/Rubik/Rubik-Bold.ttf");
+}
+h1,
+h2,
+h3 {
+  font-family: "Boing", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  line-height: 1.2;
+  font-weight: 800;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.input-control input,
+.input-control textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.input-control input:focus,
+.input-control textarea:focus {
+  background-color: #eee;
+  outline: none;
+}
+
+.btn-auth {
+  font: inherit;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.btn-auth:hover,
+.btn-auth:active {
+  background-color: rgb(51, 51, 51);
+  border: 1px solid black;
+}
+
+.inverted {
+  background-color: white;
+  color: black;
+  border: 1px solid transparent;
+}
+
+.inverted:hover,
+.inverted:active {
+  color: #ccc;
+  background-color: white;
+  border: 1px solid transparent;
+}
+
+.cancel {
+  background-color: red;
+  color: white;
+  border: 1px solid transparent;
+}
+
+.cancel:hover,
+.cancel:active {
+  background-color: salmon;
+  border: 1px solid transparent;
+  color: white;
+}
+
+.admin-auth-page {
+  padding: 20px;
+}
+
+.auth-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px #ccc;
+  width: 300px;
+  margin: auto;
+  padding: 10px;
+  box-sizing: border-box;
+}

@@ -1,19 +1,46 @@
 <template>
   <div>
+    <the-header @side-nav-toggle="toggleNav()"></the-header>
+    <the-sidenav
+      :show="displaySideNav"
+      @close="displaySideNav = false"
+    ></the-sidenav>
     <Nuxt />
   </div>
 </template>
 
+<script>
+import TheHeader from "@/components/Navigation/TheHeader";
+import TheSidenav from "@/components/Navigation/TheSidenav";
+export default {
+  data() {
+    return {
+      displaySideNav: false
+    };
+  },
+  components: {
+    TheHeader,
+    TheSidenav
+  },
+  methods: {
+    toggleNav(){
+      console.log('here');
+      this.displaySideNav = !this.displaySideNav
+    }
+  },
+};
+</script>
+
 <style>
 html {
   font-family:
-    'Source Sans Pro',
+    /* 'Source Sans Pro',
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
     Roboto,
     'Helvetica Neue',
-    Arial,
+    Arial, */ "Open Sans",
     sans-serif;
   font-size: 16px;
   word-spacing: 1px;
@@ -22,6 +49,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
 }
 
 *,
