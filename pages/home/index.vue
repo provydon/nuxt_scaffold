@@ -7,6 +7,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      siteName: null
+    };
+  },
   middleware: ["check-auth", "auth"],
   asyncData(context) {
     return context.store
@@ -19,13 +24,6 @@ export default {
       return this.$store.getters["user/data"];
     }
   },
-  head() {
-    return {
-      title:
-        this.$router.history.current.name.charAt(0).toUpperCase() +
-        this.$router.history.current.name.slice(1)
-    };
-  },
   methods: {
     logout() {
       this.$store
@@ -35,6 +33,18 @@ export default {
         })
         .catch(err => {});
     }
+  },
+  head() {
+    return {
+      title:
+        this.$router.history.current.name.charAt(0).toUpperCase() +
+        this.$router.history.current.name.slice(1) +
+        " - " +
+        this.siteName
+    };
+  },
+  mounted() {
+    this.siteName = process.env.APP_NAME;
   }
 };
 </script>

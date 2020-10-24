@@ -1,16 +1,34 @@
 <template>
   <div class="admin-auth-page flex mt-20 justify-center">
     <div class="auth-container">
-      <h3 class="text-center">Contect</h3>
+      <h3 class="text-center">Contact Us</h3>
       <form @submit.prevent="onSubmit">
         <div class="input-control">
-          <input type="name" name="name" id="name" v-model="name" placeholder="Fullname" />
+          <input
+            type="name"
+            name="name"
+            id="name"
+            v-model="name"
+            placeholder="Fullname"
+          />
         </div>
         <div class="input-control">
-          <input type="email" name="email" id="email" v-model="email" placeholder="E-Mail"/>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            v-model="email"
+            placeholder="E-Mail"
+          />
         </div>
         <div class="input-control">
-          <input type="text" name="subject" id="subject" v-model="subject" placeholder="Subject" />
+          <input
+            type="text"
+            name="subject"
+            id="subject"
+            v-model="subject"
+            placeholder="Subject"
+          />
         </div>
         <div class="input-control">
           <textarea
@@ -29,11 +47,9 @@
           <span class="text-danger font-bold f-18">{{ mailFail }}</span>
         </div>
         <div class="input-control text-center">
-          <button
-            type="submit"
-            class="btn btn-auth"
-            id="sendBtn"
-          >SUBMIT</button>
+          <button type="submit" class="btn btn-auth" id="sendBtn">
+            SUBMIT
+          </button>
         </div>
       </form>
     </div>
@@ -45,11 +61,11 @@ export default {
   name: "ContactUs",
   data() {
     return {
+      siteName: null,
       email: null,
       name: null,
       subject: null,
       message: null,
-
 
       // Response Variables
       mailSpin: false,
@@ -65,15 +81,43 @@ export default {
       this.mailSuccess = null;
       this.mailFail = null;
       document.getElementById("sendBtn").disabled = true;
+      return this.$axios
+        .$post("/send-mail", {
+          email: this.email,
+          name: this.name,
+          subject: this.subject,
+          message: this.message
+        })
+        .then(result => {
+          this.mailMessage = result.message;
+          this.$toast.success(result.message);
+          document.getElementById("sendBtn").disabled = false;
+          let vm = this;
+          setTimeout(
+            function() {
+              vm.mailMessage = null;
+            },
+            3000,
+            vm
+          );
+        })
+        .catch(err => {
+          this.mailSpin = false;
+          this.mailMessage = "Error";
+          this.mailSuccess = null;
+          this.mailFail = err.response.data.message;
+          this.$toast.error(err.response.data.message);
+        });
       return;
     }
   },
   head() {
     return {
-      title:
-        this.$router.history.current.name.charAt(0).toUpperCase() +
-        this.$router.history.current.name.slice(1)
+      title: "Contact Us - " + this.siteName
     };
+  },
+  mounted() {
+    this.siteName = process.env.APP_NAME;
   }
 };
 </script>

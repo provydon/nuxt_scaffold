@@ -104,3 +104,9 @@ h3 {
   padding: 10px;
   box-sizing: border-box;
 }
+
+.dropdown{
+  z-index: 1024;
+  right: 0;
+  top: 50px;
+}

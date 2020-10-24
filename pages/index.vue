@@ -36,6 +36,15 @@
 
 <script>
 export default {
+  asyncData(context) {
+    if (context.store.getters["auth/isAuthenticated"]) {
+      return context.store
+        .dispatch("user/getData")
+        .then(result => {})
+        .catch(err => {});
+    }
+    return;
+  },
   data() {
     return {
       siteName: null

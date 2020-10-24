@@ -52,7 +52,7 @@ export default {
   },
 
   toast: {
-    position: "top-center",
+    position: "top-right",
     duration: 3000
   },
   fontawesome: {

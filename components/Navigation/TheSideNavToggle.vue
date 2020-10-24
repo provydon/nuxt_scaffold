@@ -1,12 +1,9 @@
 <template>
-  <div
-    class="drawer-toggle"
-    role="button"
-    @click="$emit('toggle')">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
+    <div class="drawer-toggle text-right" role="button" @click="$emit('toggle')">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
 </template>
 
 <style scoped>

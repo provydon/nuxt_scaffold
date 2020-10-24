@@ -17,7 +17,13 @@
             v-model="password"
           />
         </div>
-        <button type="submit" class="btn-auth">Signup</button>
+        <div class="input-control text-center">
+          <span>{{ resMessage }}</span>
+          <i class="fas fa-spinner fa-spin" v-if="resSpin"></i>
+          <span class="text-green-700 font-bold f-18">{{ resSuccess }}</span>
+          <span class="text-red-700 font-bold f-18">{{ resFail }}</span>
+        </div>
+        <button type="submit" class="btn btn-auth" id="sendBtn">Signup</button>
         <nuxt-link to="login" tag="button" class="btn-auth inverted"
           >Switch to Login</nuxt-link
         >
@@ -28,18 +34,30 @@
 
 <script>
 export default {
+  middleware: ["home"],
   name: "AdminAuthPage",
   data() {
     return {
       isLogin: false,
       email: null,
       password: null,
-      name: null
+      name: null,
+      siteName: null,
+
+      // Response Variables
+      resSpin: false,
+      resSuccess: null,
+      resFail: null,
+      resMessage: null
     };
   },
   methods: {
     onSubmit() {
-      this.$toast.show("Signing Up...");
+      this.resSpin = true;
+      this.resMessage = "Signing Up...";
+      this.resSuccess = null;
+      this.resFail = null;
+      document.getElementById("sendBtn").disabled = true;
       this.$store
         .dispatch("auth/authtenticateUser", {
           email: this.email,
@@ -48,19 +66,42 @@ export default {
           name: this.name
         })
         .then(result => {
-          if (this.$store.getters["auth/isAuthenticated"]) {
-            this.$router.push("/home");
-          }
+          this.resMessage = null;
+          this.resSuccess = result.message;
+          this.$toast.success(result.message);
+          let vm = this;
+          setTimeout(
+            function() {
+              vm.resMessage = null;
+              document.getElementById("sendBtn").disabled = false;
+              if (vm.$store.getters["auth/isAuthenticated"]) {
+                vm.$router.push("/home");
+              }
+            },
+            2000,
+            vm
+          );
         })
-        .catch(err => {});
+        .catch(err => {
+          document.getElementById("sendBtn").disabled = false;
+          this.resSpin = true;
+          this.resMessage = null;
+          this.resSuccess = null;
+          this.resFail = err;
+        });
     }
   },
   head() {
     return {
       title:
         this.$router.history.current.name.charAt(0).toUpperCase() +
-        this.$router.history.current.name.slice(1)
+        this.$router.history.current.name.slice(1) +
+        " - " +
+        this.siteName
     };
+  },
+  mounted() {
+    this.siteName = process.env.APP_NAME;
   }
 };
 </script>
