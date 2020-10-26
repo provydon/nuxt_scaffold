@@ -44,11 +44,7 @@ export const actions = {
       authUrl = "/login";
     }
     return this.$axios
-      .$post(authUrl, {
-        email: authData.email,
-        password: authData.password,
-        name: authData.name
-      })
+      .$post(authUrl, authData)
       .then(result => {
         vuexContext.commit("setToken", result.token);
         localStorage.setItem("token", result.token);
@@ -61,6 +57,10 @@ export const actions = {
           if (err.response.data.errors.email) {
             this.$toast.error(err.response.data.errors.email);
              throw err.response.data.errors.email[0]
+          }
+          if (err.response.data.errors.username) {
+            this.$toast.error(err.response.data.errors.username);
+             throw err.response.data.errors.username[0]
           }
           if (err.response.data.errors.password) {
             this.$toast.error(err.response.data.errors.password);

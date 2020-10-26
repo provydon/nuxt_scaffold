@@ -4,7 +4,12 @@
       <h3 class="text-center">Login</h3>
       <form @submit.prevent="onSubmit">
         <div class="input-control">
-          <input type="email" name="email" id="email" v-model="email" />
+          <input
+            type="text"
+            name="emailOrUsername"
+            id="emailOrUsername"
+            v-model="emailOrUsername"
+          />
         </div>
         <div class="input-control">
           <input
@@ -36,7 +41,7 @@ export default {
   data() {
     return {
       isLogin: true,
-      email: null,
+      emailOrUsername: null,
       password: null,
       siteName: null,
 
@@ -56,7 +61,12 @@ export default {
       document.getElementById("sendBtn").disabled = true;
       this.$store
         .dispatch("auth/authtenticateUser", {
-          email: this.email,
+          email: this.validateEmail(this.emailOrUsername)
+            ? this.emailOrUsername
+            : null,
+          username: this.validateEmail(this.emailOrUsername)
+            ? null
+            : this.emailOrUsername,
           password: this.password,
           isLogin: this.isLogin
         })
@@ -78,12 +88,16 @@ export default {
           );
         })
         .catch(err => {
-         document.getElementById("sendBtn").disabled = false;
+          document.getElementById("sendBtn").disabled = false;
           this.resSpin = true;
           this.resMessage = null;
           this.resSuccess = null;
           this.resFail = err;
         });
+    },
+    validateEmail(email) {
+      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
     }
   },
   head() {

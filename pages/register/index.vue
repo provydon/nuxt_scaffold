@@ -7,6 +7,9 @@
           <input type="name" name="name" id="name" v-model="name" />
         </div>
         <div class="input-control">
+          <input type="name" name="username" id="username" v-model="username" />
+        </div>
+        <div class="input-control">
           <input type="email" name="email" id="email" v-model="email" />
         </div>
         <div class="input-control">
@@ -40,6 +43,7 @@ export default {
     return {
       isLogin: false,
       email: null,
+      username: null,
       password: null,
       name: null,
       siteName: null,
@@ -61,6 +65,7 @@ export default {
       this.$store
         .dispatch("auth/authtenticateUser", {
           email: this.email,
+          username: this.username,
           password: this.password,
           isLogin: this.isLogin,
           name: this.name

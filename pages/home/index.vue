@@ -2,15 +2,20 @@
   <div class="mt-10 text-center">
     You're Logged In <span v-if="user">{{ user.name }}</span>
     <button class="btn btn-red ml-4" @click="logout()">Logout</button>
+    <account></account>
   </div>
 </template>
 
 <script>
+import Account from '@/components/UI/Account'
 export default {
   data() {
     return {
       siteName: null
     };
+  },
+  components:{
+    Account
   },
   middleware: ["check-auth", "auth"],
   asyncData(context) {
