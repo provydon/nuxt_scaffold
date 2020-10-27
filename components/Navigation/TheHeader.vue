@@ -33,7 +33,7 @@
             v-if="isLoggedIn"
           >
             <nuxt-link to="#" v-if="user">
-              <img :src="user.image" class="h-8 inline-block" />
+              <img :src="user.image" class="h-8 inline-block rounded-full" />
               <span>{{ user.name }}</span>
             </nuxt-link>
           </li>

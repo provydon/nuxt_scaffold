@@ -25,7 +25,24 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
     "@nuxtjs/dotenv",
-    "@nuxtjs/fontawesome"
+    [
+      "nuxt-fontawesome",
+      {
+        component: "fa", //customize component name
+        imports: [
+          {
+            set: "@fortawesome/free-solid-svg-icons",
+            icons: ["faLightbulb"]
+          },
+          { set: "@fortawesome/free-brands-svg-icons", icons: ["faGithub"] },
+          {
+            set: "@fortawesome/free-regular-svg-icons",
+            icons: ["faLightbulb"]
+          },
+          { set: "@fortawesome/free-solid-svg-icons", icons: ["faEdit"] }
+        ]
+      }
+    ]
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -54,10 +71,6 @@ export default {
   toast: {
     position: "top-right",
     duration: 3000
-  },
-  fontawesome: {
-    component: "fa",
-    suffix: true,
   },
 
   pageTransition: {
