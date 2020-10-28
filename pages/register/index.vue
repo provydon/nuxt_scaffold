@@ -1,6 +1,6 @@
 <template>
-  <div class="admin-auth-page flex mt-20 justify-center">
-    <div class="auth-container">
+  <div class="brand-container">
+    <div class="auth-container mt-32">
       <h3 class="text-center">Register</h3>
       <form @submit.prevent="onSubmit">
         <div class="input-control">
@@ -80,6 +80,13 @@ export default {
               vm.resMessage = null;
               document.getElementById("sendBtn").disabled = false;
               if (vm.$store.getters["auth/isAuthenticated"]) {
+                let user = vm.$store.getters["user/data"];
+                console.log('theme:',user.theme);
+                if (user.theme) {
+                  vm.$colorMode.preference = user.theme;
+                } else {
+                  vm.$colorMode.preference = "";
+                }
                 vm.$router.push("/home");
               }
             },
@@ -110,19 +117,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.admin-auth-page {
-  padding: 20px;
-}
-
-.auth-container {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 2px #ccc;
-  width: 300px;
-  margin: auto;
-  padding: 10px;
-  box-sizing: border-box;
-}
-</style>

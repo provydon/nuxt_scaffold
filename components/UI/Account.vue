@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="admin-auth-page flex mt-20 justify-center" v-if="!edit">
+    <div class="admin-auth-page flex mt-20 justify-center" v-if="!edit && user">
       <div class="auth-container">
         <p class="text-right">
           <button class="text-blue-600" @click="editUser()">
@@ -9,7 +9,7 @@
         </p>
         <h3 class="text-center">User Account</h3>
         <img :src="user.image" class="h-20 my-3 inline-block rounded-full" />
-        <p>{{ user.name }}</p>
+        <p v-if="user.name">{{ capitalizeFirstLetter(user.name) }}</p>
         <p>@{{ user.username }}</p>
       </div>
     </div>
@@ -30,7 +30,13 @@
                 id="profilePic"
               />
             </div>
-            <input type="file" name="image" id="file" class="custom-file-input" @change="readURL()" />
+            <input
+              type="file"
+              name="image"
+              id="file"
+              class="custom-file-input"
+              @change="readURL()"
+            />
           </div>
           <div class="input-control text-center">
             <span>{{ resMessage }}</span>
@@ -53,6 +59,7 @@
         </form>
       </div>
     </div>
+    <color-mode></color-mode>
   </div>
 </template>
 
@@ -66,15 +73,18 @@ export default {
       resMessage: null,
       edit: false,
       name: null,
-      image:null
+      image: null
     };
   },
   computed: {
     user() {
       return this.$store.getters["user/data"];
-    },
+    }
   },
   methods: {
+    capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    },
     readURL() {
       var input = document.querySelector("#file");
       if (input.files && input.files[0]) {
@@ -96,10 +106,10 @@ export default {
             .setAttribute("src", e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
-        this.setImage()
+        this.setImage();
       }
     },
-    setImage(){
+    setImage() {
       var imagefile = document.querySelector("#file");
       if (imagefile) {
         this.image = imagefile.files[0];
@@ -145,7 +155,7 @@ export default {
                   vm.resSuccess = null;
                   vm.resFail = null;
                   vm.resSpin = false;
-                  vm.image = null
+                  vm.image = null;
                   document.getElementById("sendBtn").disabled = false;
                   vm.edit = false;
                 },

@@ -44,17 +44,17 @@
     <!-- Account Dropdown -->
     <div
       v-if="accDropdown"
-      class="mt-2 py-2 w-48 bg-white rounded-lg shadow-xl absolute dropdown"
+      class="dropdown"
     >
       <button
-        @click="navigate('/')"
-        class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 w-full text-left"
+        @click="navigate('/home')"
+        class="dropdown-item"
       >
-        Account Settings
+        Account
       </button>
       <button
         @click="logout()"
-        class="block px-4 py-2 text-gray-800 hover:bg-indigo-500 w-full text-left"
+        class="dropdown-item"
       >
         Sign Out
       </button>
@@ -100,6 +100,7 @@ export default {
         .dispatch("auth/logout")
         .then(result => {
           this.accDropdown = false;
+          this.$colorMode.preference = "";
           this.$router.push("/login");
         })
         .catch(err => {});
@@ -114,68 +115,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.header-container {
-  height: 60px;
-}
-
-.the-header {
-  width: 100%;
-  position: fixed;
-  height: 60px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: black;
-  z-index: 100;
-  box-sizing: border-box;
-  padding: 0 20px;
-}
-
-.logo {
-  margin: 0 10px;
-  font-size: 1.3rem;
-}
-
-.logo a {
-  text-decoration: none;
-  color: white;
-}
-
-.spacer {
-  flex: 1;
-}
-
-.navigation-items {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .navigation-items {
-    display: block;
-  }
-}
-
-.nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-
-.nav-item {
-  margin: 0 10px;
-}
-
-.nav-item a {
-  text-decoration: none;
-  color: white;
-}
-
-.nav-item a:hover,
-.nav-item a:active,
-.nav-item a.nuxt-link-active {
-  color: red;
-}
-</style>

@@ -30,93 +30,14 @@ h3 {
 .fade-leave-active {
   transition: opacity 0.5s;
 }
+
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 
-.input-control input,
-.input-control textarea {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  font: inherit;
-  border: 1px solid #ccc;
-  padding: 5px;
-}
 
-.input-control input:focus,
-.input-control textarea:focus {
-  background-color: #eee;
-  outline: none;
-}
 
-.btn-auth {
-  font: inherit;
-  background-color: black;
-  color: white;
-  padding: 5px;
-  cursor: pointer;
-  border: 1px solid black;
-}
-
-.btn-auth:hover,
-.btn-auth:active {
-  background-color: rgb(51, 51, 51);
-  border: 1px solid black;
-}
-
-.inverted {
-  background-color: white;
-  color: black;
-  border: 1px solid transparent;
-}
-
-.inverted:hover,
-.inverted:active {
-  color: #ccc;
-  background-color: white;
-  border: 1px solid transparent;
-}
-
-.cancel {
-  background-color: red;
-  color: white;
-  border: 1px solid transparent;
-}
-
-.cancel:hover,
-.cancel:active {
-  background-color: salmon;
-  border: 1px solid transparent;
-  color: white;
-}
-
-.admin-auth-page {
-  padding: 20px;
-}
-
-.auth-container {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 2px #ccc;
-  width: 300px;
-  /* margin: auto; */
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.dropdown{
-  z-index: 1024;
-  right: 0;
+.dropdown {
   top: 50px;
 }
 
-.custom-file-input {
-  /* position: relative;
-  z-index: 2;
-  width: 100%;
-  height: calc(2.25rem + 2px);
-  margin: 0;
-  opacity: 0; */
-  overflow-x: hidden;
-}

@@ -1,6 +1,6 @@
 <template>
-  <div class="admin-auth-page flex mt-20 justify-center">
-    <div class="auth-container">
+  <div class="brand-container">
+    <div class="auth-container mt-32">
       <h3 class="text-center">Contact Us</h3>
       <form @submit.prevent="onSubmit">
         <div class="input-control">
@@ -59,6 +59,7 @@
 <script>
 export default {
   name: "ContactUs",
+  middleware: ["check-auth"],
   data() {
     return {
       siteName: null,

@@ -24,7 +24,7 @@ export const actions = {
       })
       .catch(err => {
         console.log(err);
-        this.$toast.error(err.response.data.message);
+        // this.$toast.error(err.response.data.message);
       });
   }
 };

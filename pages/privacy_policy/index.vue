@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="brand-container">
     This is the Privacy Policy page.
   </div>
 </template>
@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  middleware: ["check-auth"],
   data() {
     return {
       siteName: null

@@ -1,0 +1,27 @@
+:root {
+  --brand-primary: theme("colors.black");
+  --brand-secondary: theme("colors.white");
+  --brand-on-primary: theme("colors.white");
+  --brand-on-secondary: theme("colors.black");
+  --brand-tertiary: theme("colors.red.500");
+  --brand-neutral: theme("colors.blue.600");
+  --brand-form-primary: #cccccc;
+  --brand-form-secondary: #eeeeee;
+  --brand-form-text: #000000;
+}
+
+.light-mode {
+  --brand-primary: theme("colors.white");
+  --brand-secondary: theme("colors.white");
+  --brand-on-primary: theme("colors.black");
+  --brand-on-secondary: theme("colors.black");
+}
+
+
+.dark-mode {
+  --brand-primary: theme("colors.black");
+  --brand-secondary: theme("colors.black");
+  --brand-on-primary: theme("colors.white");
+  --brand-on-secondary: theme("colors.white");
+}
+

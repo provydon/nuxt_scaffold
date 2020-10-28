@@ -1,6 +1,6 @@
 <template>
-  <div class="admin-auth-page flex mt-20 justify-center">
-    <div class="auth-container">
+  <div class="brand-container">
+    <div class="auth-container mt-32">
       <h3 class="text-center">Login</h3>
       <form @submit.prevent="onSubmit">
         <div class="input-control">
@@ -80,6 +80,12 @@ export default {
               vm.resMessage = null;
               document.getElementById("sendBtn").disabled = false;
               if (vm.$store.getters["auth/isAuthenticated"]) {
+                let user = vm.$store.getters["user/data"];
+                if (user.theme) {
+                  vm.$colorMode.preference = user.theme;
+                } else {
+                  vm.$colorMode.preference = "";
+                }
                 vm.$router.push("/home");
               }
             },

@@ -19,16 +19,27 @@ export default {
       displaySideNav: false
     };
   },
+  computed: {
+    user() {
+      return this.$store.getters["user/data"];
+    }
+  },
   components: {
     TheHeader,
     TheSidenav
   },
   methods: {
-    toggleNav(){
-      console.log('here');
-      this.displaySideNav = !this.displaySideNav
+    toggleNav() {
+      console.log("here");
+      this.displaySideNav = !this.displaySideNav;
     }
   },
+  created() {
+    // this.$colorMode.preference = "";
+    if (!this.$store.getters["auth/isAuthenticated"]) {
+      this.$colorMode.preference = "";
+    }
+  }
 };
 </script>
 

@@ -1,8 +1,13 @@
+@import "./colors.css"; /* Our custom colors */
 @tailwind base;
 @tailwind components;
-
+/* Buttons */
 .btn {
   @apply inline-block px-5 py-2 rounded-lg tracking-wider font-bold text-sm;
+}
+
+.brand-btn {
+  @apply text-brand-onSecondary bg-brand-secondary border-solid border-2 border-brand-onSecondary;
 }
 
 .btn:disabled {
@@ -13,24 +18,10 @@
   @apply opacity-50 cursor-not-allowed;
 }
 
-.btn:hover {
-  @apply cursor-pointer;
-}
-
-.btn-blue {
-  @apply bg-blue-500 text-white;
-}
-
-.btn-blue:hover {
-  @apply bg-blue-400;
-}
-
-.btn-blue:focus {
-  @apply outline-none shadow-outline;
-}
-
-.btn-blue:active {
-  @apply bg-blue-600;
+.btn:hover,
+.btn:focus,
+.btn:active {
+  @apply cursor-pointer opacity-75;
 }
 
 .btn-red {
@@ -49,6 +40,7 @@
   @apply bg-red-600;
 }
 
+/* Inputs */
 .input-control label {
   @apply block font-bold;
 }
@@ -57,9 +49,121 @@
   @apply my-3;
 }
 
+/* Navigation */
+
+.the-header {
+  @apply bg-brand-primary items-center text-brand-secondary w-full fixed h-16 flex justify-around align-middle z-50 box-border px-3;
+}
+
+.nav-item a {
+  @apply text-brand-onPrimary no-underline opacity-100;
+}
+
+.header-container {
+  @apply h-16;
+}
+
+.logo {
+  @apply mx-5 text-2xl;
+}
+
+.spacer {
+  @apply flex-1;
+}
+
+.navigation-items {
+  @apply hidden;
+}
+
+.nav-list {
+  @apply list-none p-0 m-0 flex;
+}
+
+.nav-item {
+  @apply mx-3;
+}
+
+.nav-item a:hover,
+.nav-item a:active,
+.nav-item a.nuxt-link-active {
+  @apply text-brand-tertiary;
+}
+
+.logo a {
+  @apply text-brand-onPrimary no-underline;
+}
+
+/* Conatainer */
+.brand-container {
+  @apply bg-brand-secondary text-brand-onSecondary min-h-screen flex justify-center align-middle text-center;
+}
+
+/* Index */
+
+.title {
+  @apply font-brand block font-light text-8xl text-brand-onSecondary tracking-wider;
+}
+
+.subtitle {
+  @apply font-light text-5xl text-brand-onSecondary tracking-wide p-4;
+}
+
+.links {
+  @apply pt-4;
+}
+
+.auth-container {
+  @apply h-fit border-2 border-solid border-brand-formPrimary rounded shadow-brand w-72 p-5 box-border;
+}
+
+.input-control input,
+.input-control textarea {
+  @apply text-brand-formText block w-full box-border border-2 border-solid border-brand-formPrimary p-2;
+}
+
+.input-control input:focus,
+.input-control textarea:focus {
+  @apply text-brand-formText bg-white outline-none;
+}
+
+.btn-auth {
+  @apply border-brand-onSecondary border-solid border-2 bg-brand-secondary text-brand-onSecondary p-1 px-3 cursor-pointer;
+}
+
+.inverted {
+  @apply bg-brand-onSecondary text-brand-secondary border-brand-onSecondary  border-solid border-2;
+}
+
+.cancel {
+  @apply bg-brand-tertiary text-white border-2 border-solid;
+}
+
+.dropdown {
+  @apply right-0  z-1024 mt-2 py-2 w-48 bg-brand-onSecondary rounded-lg shadow-xl absolute;
+}
+
+.dropdown-item{
+  @apply block px-4 py-2 text-brand-secondary w-full text-left;
+}
+
+.dropdown-item:hover{
+  @apply bg-brand-neutral;
+}
+
+.custom-file-input {
+  @apply overflow-x-hidden;
+}
+
+/* Responsive */
 @screen sm {
   .btn {
     @apply text-base;
+  }
+}
+
+@screen md {
+  .navigation-items {
+    @apply block;
   }
 }
 

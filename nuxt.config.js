@@ -24,6 +24,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/color-mode",
     "@nuxtjs/dotenv",
     [
       "nuxt-fontawesome",
@@ -79,5 +80,8 @@ export default {
     beforeEnter(el) {
       // console.log("Before enter...");
     }
+  },
+  purgeCSS: {
+    whitelist: ["dark-mode"]
   }
 };

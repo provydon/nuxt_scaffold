@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div class="brand-container">
     This is the About page.
   </div>
 </template>
 
 <script>
 export default {
+  middleware: ["check-auth"],
   data() {
     return {
       siteName: null
