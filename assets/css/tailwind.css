@@ -221,7 +221,7 @@ a {
 }
 
 .card{
-  @apply flex justify-center w-72;
+  @apply flex justify-center min-w-18;
 }
 
 /* Responsive */
@@ -251,8 +251,7 @@ a {
     @apply m-0 w-full mt-16;
   }
   .card{
-    @apply w-full;
+    @apply w-full min-w-0;
   }
 }
-
 @tailwind utilities;

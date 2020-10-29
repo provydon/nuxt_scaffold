@@ -67,6 +67,9 @@ module.exports = {
       zIndex: {
         "1024": "1024",
         "10000": "10000"
+      },
+      minWidth: {
+        "18": "18rem"
       }
     }
   },
