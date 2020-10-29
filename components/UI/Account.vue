@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="admin-auth-page flex mt-20 justify-center" v-if="!edit && user">
+    <div class="card" v-if="!edit && user">
       <div class="auth-container">
         <p class="text-right">
           <button class="text-blue-600" @click="editUser()">
@@ -13,7 +13,7 @@
         <p>@{{ user.username }}</p>
       </div>
     </div>
-    <div class="admin-auth-page flex mt-20 justify-center" v-else>
+    <div class="admin-auth-page flex justify-center" v-else>
       <div class="auth-container">
         <h3 class="text-center">Edit User Account</h3>
         <form @submit.prevent="updateUser" class="text-left">

@@ -1,6 +1,6 @@
 <template>
   <div class="brand-container">
-    <div class="auth-container mt-32">
+    <div class="auth-container">
       <h3 class="text-center">Contact Us</h3>
       <form @submit.prevent="onSubmit">
         <div class="input-control">
@@ -119,6 +119,17 @@ export default {
   },
   mounted() {
     this.siteName = process.env.APP_NAME;
+    if (this.$store.getters["auth/isAuthenticated"]) {
+      this.$store
+        .dispatch("user/getData")
+        .then(result => {
+          var user = this.$store.getters["user/data"];
+          this.$colorMode.preference = user.theme;
+        })
+        .catch(err => {});
+    } else {
+      this.$colorMode.preference = "nuetral";
+    }
   }
 };
 </script>

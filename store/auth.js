@@ -52,26 +52,30 @@ export const actions = {
         return result
       })
       .catch(err => {
-        this.$toast.error(err.response.data.message);
-        if (err.response.data.errors) {
-          if (err.response.data.errors.email) {
-            this.$toast.error(err.response.data.errors.email);
-             throw err.response.data.errors.email[0]
-          }
-          if (err.response.data.errors.username) {
-            this.$toast.error(err.response.data.errors.username);
-             throw err.response.data.errors.username[0]
-          }
-          if (err.response.data.errors.password) {
-            this.$toast.error(err.response.data.errors.password);
-            throw err.response.data.errors.password[0]
-          }
-          if (err.response.data.errors.name) {
-            this.$toast.error(err.response.data.errors.name);
-            throw err.response.data.errors.name[0]
+        if (err.response) {
+          this.$toast.error(err.response.data.message);
+          if (err.response.data.errors) {
+            if (err.response.data.errors.email) {
+              this.$toast.error(err.response.data.errors.email);
+               throw err.response.data.errors.email[0]
+            }
+            if (err.response.data.errors.username) {
+              this.$toast.error(err.response.data.errors.username);
+               throw err.response.data.errors.username[0]
+            }
+            if (err.response.data.errors.password) {
+              this.$toast.error(err.response.data.errors.password);
+              throw err.response.data.errors.password[0]
+            }
+            if (err.response.data.errors.name) {
+              this.$toast.error(err.response.data.errors.name);
+              throw err.response.data.errors.name[0]
+            }
+          }else{
+            throw err.response.data.message
           }
         }else{
-          throw err.response.data.message
+          throw err
         }
       });
   },

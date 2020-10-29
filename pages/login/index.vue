@@ -1,6 +1,6 @@
 <template>
   <div class="brand-container">
-    <div class="auth-container mt-32">
+    <div class="auth-container">
       <h3 class="text-center">Login</h3>
       <form @submit.prevent="onSubmit">
         <div class="input-control">

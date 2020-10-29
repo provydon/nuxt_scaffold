@@ -30,6 +30,8 @@ export default {
       this.$store
         .dispatch("auth/logout")
         .then(result => {
+          this.$colorMode.preference = "nuetral";
+          this.$store.commit("user/setData", {});
           this.$router.push("/login");
         })
         .catch(err => {});
@@ -46,6 +48,14 @@ export default {
   },
   mounted() {
     this.siteName = process.env.APP_NAME;
+    if (this.$store.getters["auth/isAuthenticated"]) {
+      this.$store
+        .dispatch("user/getData")
+        .then(result => {
+          this.$colorMode.preference = this.user.theme;
+        })
+        .catch(err => {});
+    }
   }
 };
 </script>

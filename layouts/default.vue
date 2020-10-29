@@ -13,16 +13,10 @@
 import TheHeader from "@/components/Navigation/TheHeader";
 import TheSidenav from "@/components/Navigation/TheSidenav";
 export default {
-  middleware: ["check-auth"],
   data() {
     return {
       displaySideNav: false
     };
-  },
-  computed: {
-    user() {
-      return this.$store.getters["user/data"];
-    }
   },
   components: {
     TheHeader,
@@ -32,12 +26,6 @@ export default {
     toggleNav() {
       console.log("here");
       this.displaySideNav = !this.displaySideNav;
-    }
-  },
-  created() {
-    // this.$colorMode.preference = "";
-    if (!this.$store.getters["auth/isAuthenticated"]) {
-      this.$colorMode.preference = "";
     }
   }
 };

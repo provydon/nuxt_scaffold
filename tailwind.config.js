@@ -12,7 +12,8 @@ module.exports = {
           onSecondary: "var(--brand-on-secondary)",
           formPrimary: "var(--brand-form-primary)",
           formSecondary: "var(--brand-form-secondary)",
-          formText: "var(--brand-form-text)"
+          formText: "var(--brand-form-text)",
+          blackShadow: "rgba(0, 0, 0, 0.7)"
           // on: {
           //   primary: "var(--brand-on-primary)",
           //   secondary: "var(--brand-on-secondary)"
@@ -53,13 +54,19 @@ module.exports = {
         brand: "0 2px 2px var(--brand-form-primary)"
       },
       spacing: {
-        "72": "18rem"
+        "72": "18rem",
+        "76": "18.75rem",
+        "90": "90%",
+        "80vw": "80vw",
       },
       height: {
-        fit: "fit-content"
+        fit: "fit-content",
+        "2px": "2px",
+        "50p": "50%"
       },
       zIndex: {
-        "1024": "1024"
+        "1024": "1024",
+        "10000": "10000"
       }
     }
   },

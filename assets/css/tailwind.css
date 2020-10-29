@@ -113,7 +113,7 @@
 }
 
 .auth-container {
-  @apply h-fit border-2 border-solid border-brand-formPrimary rounded shadow-brand w-72 p-5 box-border;
+  @apply mt-32 h-fit border-2 border-solid border-brand-formPrimary rounded shadow-brand w-72 p-5 box-border;
 }
 
 .input-control input,
@@ -142,16 +142,86 @@
   @apply right-0  z-1024 mt-2 py-2 w-48 bg-brand-onSecondary rounded-lg shadow-xl absolute;
 }
 
-.dropdown-item{
+.dropdown-item {
   @apply block px-4 py-2 text-brand-secondary w-full text-left;
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
   @apply bg-brand-neutral;
 }
 
 .custom-file-input {
   @apply overflow-x-hidden;
+}
+
+/* Sidenav */
+.sidenav-container {
+  @apply h-full w-full;
+}
+
+.sidenav-backdrop {
+  @apply w-full h-full bg-brand-blackShadow z-0 fixed top-0 left-0;
+}
+
+.sidenav {
+  @apply border-brand-onPrimary border-0 border-l-2 h-screen  w-76 bg-brand-primary z-10000 fixed top-0 right-0 box-border py-8 px-6 overflow-y-scroll;
+}
+
+.sidenav-container .nav-list {
+  @apply list-none p-0 m-0 flex flex-col;
+}
+
+.sidenav-container .nav-item {
+  @apply my-5 mx-0;
+}
+
+.sidenav-container .nav-item .nav-item-account {
+  @apply items-center flex flex-col justify-center;
+}
+
+.sidenav-container .nav-item a,
+.sidenav-container .nav-item button {
+  @apply no-underline text-brand-onPrimary flex flex-col;
+}
+
+.sidenav-container .nav-item a img {
+  @apply flex-1 w-1/3;
+}
+
+.sidenav-container .nav-item button.logout {
+  @apply block text-brand-tertiary  w-full text-left;
+}
+
+.sidenav-container .nav-item.line {
+  @apply m-0;
+}
+
+.sidenav-container .nav-item button.logout:hover {
+  @apply text-brand-neutral;
+}
+
+.sidenav-container .nav-item a:hover,
+.sidenav-container .nav-item a:active {
+  @apply text-brand-tertiary;
+}
+.sidenav-container .logo {
+  @apply font-bold ml-0;
+}
+.sidenav-container .logo,
+a {
+  @apply text-brand-onPrimary;
+}
+
+.drawer-toggle {
+  @apply flex flex-col justify-around h-50p w-8 cursor-pointer text-right;
+}
+
+.drawer-toggle .bar {
+  @apply w-90 h-2px bg-brand-onPrimary;
+}
+
+.card{
+  @apply flex justify-center w-72;
 }
 
 /* Responsive */
@@ -164,6 +234,24 @@
 @screen md {
   .navigation-items {
     @apply block;
+  }
+  .drawer-toggle {
+    @apply hidden;
+  }
+}
+
+@screen md-max{
+  .title {
+    @apply text-4xl;
+  }
+  .brand-container{
+    @apply align-top p-4 min-w-full;
+  }
+  .auth-container {
+    @apply m-0 w-full mt-16;
+  }
+  .card{
+    @apply w-full;
   }
 }
 

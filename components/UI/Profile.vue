@@ -1,12 +1,15 @@
 <template>
-  <div>
-    <div class="admin-auth-page flex mt-20 justify-center">
-      <div class="auth-container">
-        <h3 class="text-center">User Profile</h3>
-        <img :src="userProfile.image" class="h-20 my-3 inline-block rounded-full" />
-        <p v-if="userProfile.name">{{ capitalizeFirstLetter(userProfile.name) }}</p>
-        <p>@{{ userProfile.username }}</p>
-      </div>
+  <div class="card">
+    <div class="auth-container">
+      <h3 class="text-center">User Profile</h3>
+      <img
+        :src="userProfile.image"
+        class="h-20 my-3 inline-block rounded-full"
+      />
+      <p v-if="userProfile.name">
+        {{ capitalizeFirstLetter(userProfile.name) }}
+      </p>
+      <p>@{{ userProfile.username }}</p>
     </div>
   </div>
 </template>
@@ -18,6 +21,6 @@ export default {
     capitalizeFirstLetter(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
-  },
+  }
 };
 </script>

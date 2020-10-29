@@ -1,6 +1,6 @@
 <template>
   <div class="brand-container">
-    <div class="auth-container mt-32">
+    <div class="auth-container">
       <h3 class="text-center">Register</h3>
       <form @submit.prevent="onSubmit">
         <div class="input-control">
@@ -81,7 +81,6 @@ export default {
               document.getElementById("sendBtn").disabled = false;
               if (vm.$store.getters["auth/isAuthenticated"]) {
                 let user = vm.$store.getters["user/data"];
-                console.log('theme:',user.theme);
                 if (user.theme) {
                   vm.$colorMode.preference = user.theme;
                 } else {
