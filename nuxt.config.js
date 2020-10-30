@@ -12,7 +12,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ["~/assets/css/main.css"],
+  css: ["~/assets/css/main.css","~/assets/fontawesome-free-5.13.0-web/css/all.min.css"],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],
@@ -52,7 +52,7 @@ export default {
   axios: {
     baseURL: development
       ? "http://localhost:8000/api/v1"
-      : "https://changetonaira.com/api/v1",
+      : "https://yoursite.com/api/v1",
     credentials: false
   },
 

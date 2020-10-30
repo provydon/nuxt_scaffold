@@ -1,6 +1,6 @@
 # Nuxt Scaffold
 ### Initial Scaffold setup for your next Nuxtjs Application
-#### Has Basic Authentication, Color Theming, Basic Webiste Pages etc.
+#### Has Basic Authentication, Color Theming, Auth Middleware, Font Awesome, Basic Webiste Pages etc.
 
 ## Build Setup
 
