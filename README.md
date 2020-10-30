@@ -1,4 +1,6 @@
-# ChangeToNaira
+# NuxtScaffold
+### Initial Scaffold for Setup for your next Nuxtjs Application
+#### Has Basic Authentication, Color Theming, Basic Webiste Pages etc.
 
 ## Build Setup
 
