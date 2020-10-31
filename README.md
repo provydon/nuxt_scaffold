@@ -5,6 +5,10 @@
 ## Build Setup
 
 ```bash
+
+# Create a .env file in the root of the project and add this to it
+$ APP_NAME="Nuxt Scaffold"
+
 # install dependencies
 $ npm install
 
@@ -17,6 +21,9 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
 ```
+
+
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
